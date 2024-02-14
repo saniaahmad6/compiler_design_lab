@@ -15,3 +15,7 @@ console.
 - WAP to implement a MEALY MACHINE, where the program
 generates an output corresponding to an input string given through the
 console.
+
+**P4: _NFA to DFA_**
+- WAP to implement the conversion of NFA to a corresponding
+DFA. The NFA must be given through a separate file.
