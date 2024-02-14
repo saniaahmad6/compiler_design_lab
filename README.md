@@ -10,3 +10,8 @@ Finite Automaton which is given through a separate file.
 - WAP to implement a MOORE MACHINE, where the program
 generates an output corresponding to an input string given through the
 console.
+
+**P3: _Mealy Machine_**
+- WAP to implement a MEALY MACHINE, where the program
+generates an output corresponding to an input string given through the
+console.
