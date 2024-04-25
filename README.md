@@ -19,3 +19,7 @@ console.
 **P4: _NFA to DFA_**
 - WAP to implement the conversion of NFA to a corresponding
 DFA. The NFA must be given through a separate file.
+
+**P5: _First & Follow_**
+- WAP to Evaluate the FIRST & FOLLOW information of a CFG
+which is given through a file.
