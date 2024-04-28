@@ -9,6 +9,21 @@ int stringToInt(string t){
 	}
 	return ans;
 }
+
+
+void dfs(int node, vector <int> ds,vector <int> &vis, vector <vector <int>> &adjmat, vector <vector<vector<int>>> &dominatorListTemp) {
+	ds.push_back(node);
+	vis[node]=1;
+	for (int i=1;i<adjmat[node].size();i++) {
+		if (!vis[i] and i!=node and adjmat[node][i]==1) {
+			dfs(i,ds,vis,adjmat,dominatorListTemp);
+		}
+	}
+	// cout<<"yes"<<" ";
+	dominatorListTemp[node].push_back(ds);
+	vis[node]=0;
+	ds.pop_back();
+}
 int main(){
     fstream DFA("input.txt",ios::in);
 	string line;
@@ -87,7 +102,7 @@ int main(){
 			string jmp=lastLine.substr(lastLine.find("goto")+5);
 			jmp=jmp.substr(1,jmp.size()-2);
 			int jmpnum=stringToInt(jmp);
-			cout<<jmpnum<<endl;
+			// cout<<jmpnum<<endl;
 			adjmat[k][mp[jmpnum]]=1;
 //			cout<<k<<" "<<mp[jmpnum]<<endl;
 			if (lastLine.find("goto")!=0) {
@@ -114,5 +129,45 @@ int main(){
 		file << line;
 		cout<<endl;
 	}
+	
+
+	// Dominator Lists
+	vector <vector<vector<int>>> dominatorListTemp(k);
+	vector <int> vis(k,0);
+	dfs(1,vector<int> (),vis,adjmat,dominatorListTemp);
+
+
+	map <int,map<int,int>> dominatorMap;
+	map <int,set<int>> dominatorList;  
+
+	for (int node=1;node<k;node++) {
+		map <int,int> mp;
+		int maxi=0;
+		for (auto vec : dominatorListTemp[node]) {
+			for (auto v : vec) {
+				mp[v]++; 
+				maxi=max(maxi,mp[v]);
+			}
+		}
+		for (auto p : mp) {
+			int v=p.first;
+			int f=p.second;
+			if (f==maxi) {
+				dominatorList[node].insert(v);
+			}
+		}
+	}
+
+	for (auto p : dominatorList) {
+		int node=p.first;
+		auto list=p.second;
+		cout<<node<<" -> { ";
+		for (auto x : list) {
+			cout<<x<<" ";
+		}
+		cout<<" }"<<endl;
+	}
 	return 0;
 }
+
+
