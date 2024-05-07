@@ -23,3 +23,6 @@ DFA. The NFA must be given through a separate file.
 **P5: _First & Follow_**
 - WAP to Evaluate the FIRST & FOLLOW information of a CFG
 which is given through a file.
+
+**P6: _Control flow graph_**
+- WAP to Evaluate leaders, blocks, and Control flow graph of an adjacency matrix. Find dominator list as well.
