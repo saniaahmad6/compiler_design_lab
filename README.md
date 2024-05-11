@@ -1,6 +1,6 @@
 # Compiler_Design_Lab
 
-### Programs covered in Compiler Design Lab (CEN-693) during the course work of VI semester (2024)
+### Programs covered in Compiler Design Lab during the course work of VI semester (2024)
 
 **P1: _Construct DFA_** 
 - WAP to implement a program that takes an input string from the console and verifies it against a Deterministic
