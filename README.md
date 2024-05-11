@@ -25,4 +25,4 @@ DFA. The NFA must be given through a separate file.
 which is given through a file.
 
 **P6: _Control flow graph_**
-- WAP to Evaluate leaders, blocks, and Control flow graph of an adjacency matrix. Find dominator list as well.
+- WAP to Evaluate leaders, blocks, and Control flow graph as an adjacency matrix. Find dominator list as well.
